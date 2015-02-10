@@ -5747,6 +5747,8 @@ let
 
   gtk3 = callPackage ../development/libraries/gtk+/3.x.nix { };
 
+  gtk3_15 = callPackage ../development/libraries/gtk+/3.15.nix { };
+
   gtk = pkgs.gtk2;
 
   gtkmm = callPackage ../development/libraries/gtkmm/2.x.nix { };
@@ -12443,6 +12445,12 @@ let
   gnome3_12 = recurseIntoAttrs (callPackage ../desktops/gnome-3/3.12 {
     callPackage = pkgs.newScope pkgs.gnome3_12;
   });
+
+  gnome3_15 = recurseIntoAttrs (
+    import ../desktops/gnome-3/3.15 {
+      callPackage = newScope pkgs.gnome3_15;
+    }
+  );
 
   gnome3 = gnome3_12;
 
